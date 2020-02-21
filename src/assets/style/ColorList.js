@@ -3,7 +3,8 @@ export const color = {
   themaColor: '#000000',
   whiteColor: 'white',
   fontColor: 'white',
-  secondaryFont: '#8D9FE6',
+  // secondaryFont: '#8D9FE6',
+  secondaryFont: '#a7b6f2',
 }
 
 export const cardColor = [

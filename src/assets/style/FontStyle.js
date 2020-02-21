@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { color } from '../style/ColorList'
+import { color } from './ColorList'
 
 export default StyleSheet.create({
   bigFontWhite: {

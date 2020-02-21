@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {
-  View,
-} from 'react-native'
-import {
   Container,
   Content,
+  Icon
 } from 'native-base'
+import { TouchableOpacity } from 'react-native'
 import { color } from '../../assets/style/ColorList'
 import ComponentHeader from './components/ComponentHeader'
 import ComponentCard from './components/ComponentCard'
+import styles from './styles/Style'
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class HomeScreen extends Component {
     return (
       <Container>
         <ComponentHeader />
-        <Content style={{backgroundColor: color.themaColor}}>
+        <Content style={styles.container}>
           <ComponentCard
             index={0}
             show_schedule={this.state.show_schedule}
@@ -45,6 +45,9 @@ class HomeScreen extends Component {
             showUnshowSchedule={() => this.showUnshowSchedule()} 
           />
         </Content>
+        <TouchableOpacity style={styles.containerButton}>
+          <Icon type='MaterialCommunityIcons' name='plus' style={{ color: color.whiteColor }} />
+        </TouchableOpacity>
       </Container>
     )
   }

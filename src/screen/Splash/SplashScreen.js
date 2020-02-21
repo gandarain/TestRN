@@ -24,7 +24,7 @@ class SplashScreen extends Component {
     return (
       <View style={styles.container}>
         <ActivityIndicator size="large" color="white" />
-        <Text style={fontStyles.titleWhiteBold}>Loading</Text>
+        <Text style={fontStyles.bigFontWhite}>Loading</Text>
       </View>
     )
   }
