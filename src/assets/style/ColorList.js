@@ -4,10 +4,16 @@ export const color = {
   whiteColor: 'white',
   fontColor: 'white',
   secondaryFont: '#8D9FE6',
-  card: {
-    lecture: '#25306E'
-  },
-  cardType: {
-    lecture: '#3E50B4'
-  }
 }
+
+export const cardColor = [
+  '#3E50B4',
+  '#009786',
+  '#F15350'
+]
+
+export const subCardColor = [
+  '#25306E',
+  '#00594E',
+  '#8A342A'
+]

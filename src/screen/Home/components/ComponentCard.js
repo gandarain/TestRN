@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   View,
 } from 'react-native'
-import { color } from '../../../assets/style/ColorList'
+import { cardColor } from '../../../assets/style/ColorList'
 import ComponentTitleCard from './ComponentTitleCard'
 import ComponentDescriptionCard from './ComponentDescriptionCard'
 import ComponentActionCard from './ComponentActionCard'
@@ -25,8 +25,8 @@ class ComponentCard extends Component {
   render() {
     return (
       <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
-        <View style={{ backgroundColor: color.cardType.lecture, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 5 }}>
-          <ComponentTitleCard />
+        <View style={{ backgroundColor: cardColor[this.props.index], paddingHorizontal: 20, paddingVertical: 10, borderRadius: 5 }}>
+          <ComponentTitleCard index={this.props.index} />
           <ComponentDescriptionCard />
           <ComponentActionCard 
             show_schedule={this.props.show_schedule} 

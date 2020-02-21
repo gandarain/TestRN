@@ -6,8 +6,7 @@ export default StyleSheet.create({
     width: '100%', 
     flexDirection: 'row', 
     paddingVertical: 20, 
-    borderBottomColor: 'white', 
-    borderBottomWidth: 1
+    borderBottomColor: 'white'
   },
   subContainer: {
     width: '80%', 

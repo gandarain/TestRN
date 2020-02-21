@@ -5,6 +5,7 @@ import {
 } from 'react-native'
 import fontStyles from '../../../assets/style/FontStyle'
 import styles from '../styles/StyleTitleCard'
+import { subCardColor } from '../../../assets/style/ColorList'
 
 class ComponentTitleCard extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ComponentTitleCard extends Component {
         <View style={styles.containerTitle}>
           <Text style={fontStyles.bigFontWhiteBold}>Software Engineering</Text>
         </View>
-        <View style={styles.containerSubTitle}>
+        <View style={[styles.containerSubTitle, {backgroundColor: subCardColor[this.props.index]}]}>
           <Text style={fontStyles.mediumFontWhiteBold}>Lecture</Text>
         </View>
       </View>

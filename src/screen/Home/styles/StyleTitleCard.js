@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native'
-import { color } from '../../../assets/style/ColorList'
 
 export default StyleSheet.create({
   container: {
@@ -12,7 +11,6 @@ export default StyleSheet.create({
   },
   containerSubTitle: {
     width: '20%', 
-    backgroundColor: color.card.lecture, 
     alignItems: 'center', 
     justifyContent: 'center'
   }

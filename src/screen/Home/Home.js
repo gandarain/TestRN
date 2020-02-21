@@ -28,13 +28,22 @@ class HomeScreen extends Component {
     return (
       <Container>
         <ComponentHeader />
-        <Content>
-          <View style={{ backgroundColor: color.themaColor }}>
-            <ComponentCard 
-              show_schedule={this.state.show_schedule}
-              showUnshowSchedule={() => this.showUnshowSchedule()} 
-            />
-          </View>
+        <Content style={{backgroundColor: color.themaColor}}>
+          <ComponentCard
+            index={0}
+            show_schedule={this.state.show_schedule}
+            showUnshowSchedule={() => this.showUnshowSchedule()} 
+          />
+          <ComponentCard
+            index={1}
+            show_schedule={this.state.show_schedule}
+            showUnshowSchedule={() => this.showUnshowSchedule()} 
+          />
+          <ComponentCard
+            index={2}
+            show_schedule={this.state.show_schedule}
+            showUnshowSchedule={() => this.showUnshowSchedule()} 
+          />
         </Content>
       </Container>
     )

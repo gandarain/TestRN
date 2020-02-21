@@ -16,7 +16,7 @@ class ComponentActionCard extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, {borderBottomWidth: this.props.show_schedule ? 1 : 0}]}>
         <View style={styles.subContainer}>
           <TouchableOpacity style={styles.containerIcon}>
             <Icon type='MaterialCommunityIcons' name='check' style={styles.icon} />

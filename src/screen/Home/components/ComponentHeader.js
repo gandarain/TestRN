@@ -30,7 +30,7 @@ class ComponentHeader extends Component {
           </TouchableOpacity>
         </Left>
         <Body>
-          <Text style={fontStyles.titleWhite}>My Subjects</Text>
+          <Text style={fontStyles.bigFontWhite}>My Subjects</Text>
         </Body>
         <Right>
           <TouchableOpacity>
