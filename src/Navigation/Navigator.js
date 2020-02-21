@@ -17,8 +17,9 @@ const AppStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
+      headerShown: false
       // eslint-disable-next-line react/display-name
-      header: () => <Header title={'Home'} />,
+      // header: () => <Header title={'Home'} />,
     }
   },
   Profile: {

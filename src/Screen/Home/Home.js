@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from 'react-native'
 import {
   Container,
-  Icon
+  Icon,
+  Content,
+  Header,
+  Left,
+  Body,
+  Right
 } from 'native-base'
 import { color } from '../../Assets/Style/ColorList'
 
@@ -22,28 +28,38 @@ class HomeScreen extends Component {
   render() {
     return (
       <Container>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ paddingBottom: 10 }}>
-            <Text style={{ color: color.fontColor }}>{this.props.value}</Text>
-          </View>
-          <View style={{ flexDirection: 'row', width: '20%', justifyContent: 'space-between', paddingVertical: 10 }}>
-            <TouchableOpacity
-              onPress={() => this.props.incrementValue()}
-              style={{ backgroundColor: 'blue', borderRadius: 20, padding: 5 }}>
-              <Icon type='MaterialCommunityIcons' name='plus' style={{ color: color.whiteColor }} />
+        <Header style={{ backgroundColor: color.themaColor }}>
+          <StatusBar barStyle="light-content" backgroundColor={color.themaColor} />
+          <Left>
+            <TouchableOpacity>
+              <Icon type='MaterialCommunityIcons' name='menu' style={{ color: 'white' }} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.decrementValue()}
-              style={{ backgroundColor: 'red', borderRadius: 20, padding: 5 }}>
-              <Icon type='MaterialCommunityIcons' name='minus' style={{ color: color.whiteColor }} />
+          </Left>
+          <Body>
+            <Text style={{ color: color.whiteColor, fontSize: 20 }}>My Subjects</Text>
+          </Body>
+          <Right>
+            <TouchableOpacity>
+              <Icon type='MaterialCommunityIcons' name='dots-vertical' style={{ color: color.whiteColor }} />
             </TouchableOpacity>
+          </Right>
+        </Header>
+        <Content>
+          <View style={{ backgroundColor: color.themaColor }}>
+            <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
+              <View style={{ backgroundColor: 'blue', paddingHorizontal: 20, paddingVertical: 10 }}>
+                <View style={{ width: '100%', flexDirection: 'row' }}>
+                  <View style={{ width: '80%' }}>
+                    <Text style={{ color: color.whiteColor, fontSize: 20 }}>Software Engineering</Text>
+                  </View>
+                  <View style={{ width: '20%', backgroundColor: 'black', alignItems: 'center', justifyContent: 'center' }}>
+                    <Text style={{ color: 'white' }}>Lecture</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
           </View>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Profile')}
-            style={{ backgroundColor: color.themaColor, paddingVertical: 10, paddingHorizontal: 30, borderRadius: 5 }}>
-            <Text style={{ color: color.whiteColor }}>Profile</Text>
-          </TouchableOpacity>
-        </View>
+        </Content>
       </Container>
     )
   }
