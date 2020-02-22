@@ -26,7 +26,11 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   subContainerMajor: {
-    width: '45%', 
+    width: '60%', 
+    flexDirection: 'row'
+  },
+  containerGrade: {
+    width: '20%', 
     flexDirection: 'row'
   }
 })

@@ -7,10 +7,10 @@ export default StyleSheet.create({
     paddingBottom: 5
   },
   containerTitle: {
-    width: '80%'
+    width: '70%'
   },
   containerSubTitle: {
-    width: '20%', 
+    width: '30%', 
     alignItems: 'center', 
     justifyContent: 'center'
   }

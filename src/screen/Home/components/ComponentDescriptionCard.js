@@ -31,11 +31,11 @@ class ComponentDescriptionCard extends Component {
             <View style={styles.containerIcon}>
               <Icon type='MaterialCommunityIcons' name='domain' style={styles.icon} />
             </View>
-            <View style={styles.subContainerTime}>
+            <View style={styles.containerDivision}>
               <Text style={fontStyles.mediumFontSecondary}>{this.props.data.division}</Text>
             </View>
           </View>
-          <View style={styles.subContainerMajor}>
+          <View style={styles.containerGrade}>
             <Text style={fontStyles.mediumFontSecondary}>{this.props.data.grade}</Text>
           </View>
         </View>
