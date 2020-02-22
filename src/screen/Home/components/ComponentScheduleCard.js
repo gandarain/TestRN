@@ -15,6 +15,23 @@ class ComponentScheduleCard extends Component {
     this.state = {}
   }
 
+  renderDay() {
+    let date = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    return date[this.props.data.schedule.getDay()]
+  }
+
+  renderTime() {
+    let hours = this.props.data.schedule.getHours()
+    let minutes = this.props.data.schedule.getMinutes()
+    let ampm = hours >= 12 ? 'PM' : 'AM'
+    hours = hours % 12
+    hours = hours ? hours : 12
+    hours = hours < 10 ? '0'+hours : hours
+    minutes = minutes < 10 ? '0'+minutes : minutes
+    let time = `${hours}:${minutes} ${ampm}`
+    return time
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,8 +42,8 @@ class ComponentScheduleCard extends Component {
           <Text style={fontStyles.bigFontWhiteBold}>Schedule</Text>
         </View>
         <View style={styles.containerDescription}>
-          <Text style={fontStyles.mediumFontWhiteBold}>Monday</Text>
-          <Text style={fontStyles.mediumFontWhite}>09.00 AM</Text>
+          <Text style={fontStyles.mediumFontWhiteBold}>{this.renderDay()}</Text>
+          <Text style={fontStyles.mediumFontWhite}>{this.renderTime()}</Text>
         </View>
       </View>
     )

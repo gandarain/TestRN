@@ -17,10 +17,10 @@ class ComponentTitleCard extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerTitle}>
-          <Text style={fontStyles.bigFontWhiteBold}>Software Engineering</Text>
+          <Text style={fontStyles.bigFontWhiteBold}>{this.props.data.title}</Text>
         </View>
         <View style={[styles.containerSubTitle, {backgroundColor: subCardColor[this.props.index]}]}>
-          <Text style={fontStyles.mediumFontWhiteBold}>Lecture</Text>
+          <Text style={fontStyles.mediumFontWhiteBold}>{this.props.data.type}</Text>
         </View>
       </View>
     )

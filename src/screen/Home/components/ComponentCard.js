@@ -17,7 +17,7 @@ class ComponentCard extends Component {
   renderSchedule() {
     if(this.props.show_schedule){
       return(
-        <ComponentScheduleCard />
+        <ComponentScheduleCard data={this.props.data} />
       )
     }
   }
@@ -26,11 +26,11 @@ class ComponentCard extends Component {
     return (
       <View style={{ marginHorizontal: 10, marginVertical: 10 }}>
         <View style={{ backgroundColor: cardColor[this.props.index], paddingHorizontal: 20, paddingVertical: 10, borderRadius: 5 }}>
-          <ComponentTitleCard index={this.props.index} />
-          <ComponentDescriptionCard />
+          <ComponentTitleCard data={this.props.data} index={this.props.index} />
+          <ComponentDescriptionCard data={this.props.data} />
           <ComponentActionCard 
-            show_schedule={this.props.show_schedule} 
-            showUnshowSchedule={() => this.props.showUnshowSchedule()} 
+            data={this.props.data} 
+            showUnshowSchedule={(item) => this.props.showUnshowSchedule(item)} 
           />
           {this.renderSchedule()}
         </View>

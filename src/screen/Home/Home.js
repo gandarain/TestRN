@@ -4,6 +4,7 @@ import {
   Content,
   Icon
 } from 'native-base'
+import {FlatList, SafeAreaView} from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { color } from '../../assets/style/ColorList'
 import ComponentHeader from './components/ComponentHeader'
@@ -14,37 +15,95 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      show_schedule: false
+      data: [],
+      refreshing: false
     }
   }
 
-  showUnshowSchedule() {
+  componentDidMount(){
+    this.loadData()
+  }
+
+  loadData() {
     this.setState({
-      show_schedule: !this.state.show_schedule
+      refreshing: true
     })
+    let data = [
+      {
+        id: 1,
+        title: 'Software Engineering',
+        division: 'Computer Engineering',
+        time: '3rd Year/Standard',
+        type: 'Lecture',
+        grade: 'A',
+        schedule: new Date(),
+        show_schedule: false
+      },
+      {
+        id: 2,
+        title: 'DMSA',
+        division: 'Computer Engineering',
+        time: '3rd Year/Standard',
+        type: 'Practical',
+        grade: 'A',
+        schedule: new Date(),
+        show_schedule: false
+      },
+      {
+        id: 3,
+        title: 'PCPD',
+        division: 'Computer Engineering',
+        time: '3rd Year/Standard',
+        type: 'Lecture',
+        grade: 'A',
+        schedule: new Date(),
+        show_schedule: false
+      }
+    ]
+    setTimeout(() => {
+      this.setState({
+        data: data,
+        refreshing: false
+      })
+    }, 1000)
+    
+  }
+
+  showUnshowSchedule(item) {
+    let id = item.id
+    this.setState(prevState => ({
+      data: prevState.data.map(
+        item => item.id === id? { ...item, show_schedule: !item.show_schedule }: item
+      )
+    }))
+  }
+
+  onRefresh() {
+    this.setState({
+      data: []
+    })
+    this.loadData()
   }
 
   render() {
     return (
       <Container>
         <ComponentHeader />
-        <Content style={styles.container}>
-          <ComponentCard
-            index={0}
-            show_schedule={this.state.show_schedule}
-            showUnshowSchedule={() => this.showUnshowSchedule()} 
+        <SafeAreaView style={styles.container}>
+          <FlatList
+            refreshing={this.state.refreshing}
+            data={this.state.data}
+            renderItem={({ item, index }) => (
+              <ComponentCard
+                data={item}
+                index={index}
+                show_schedule={item.show_schedule}
+                showUnshowSchedule={() => this.showUnshowSchedule(item)} />
+            )}
+            keyExtractor={item => item.id.toString()}
+            onRefresh={() => this.onRefresh()}
           />
-          <ComponentCard
-            index={1}
-            show_schedule={this.state.show_schedule}
-            showUnshowSchedule={() => this.showUnshowSchedule()} 
-          />
-          <ComponentCard
-            index={2}
-            show_schedule={this.state.show_schedule}
-            showUnshowSchedule={() => this.showUnshowSchedule()} 
-          />
-        </Content>
+        </SafeAreaView>
         <TouchableOpacity style={styles.containerButton}>
           <Icon type='MaterialCommunityIcons' name='plus' style={{ color: color.whiteColor }} />
         </TouchableOpacity>

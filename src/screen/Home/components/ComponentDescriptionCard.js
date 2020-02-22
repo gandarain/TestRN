@@ -23,7 +23,7 @@ class ComponentDescriptionCard extends Component {
             <Icon type='MaterialCommunityIcons' name='account' style={styles.icon} />
           </View>
           <View style={styles.subContainerTime}>
-            <Text style={fontStyles.mediumFontSecondary}>3rd Year/Standard</Text>
+            <Text style={fontStyles.mediumFontSecondary}>{this.props.data.time}</Text>
           </View>
         </View>
         <View style={styles.containerMajor}>
@@ -32,11 +32,11 @@ class ComponentDescriptionCard extends Component {
               <Icon type='MaterialCommunityIcons' name='domain' style={styles.icon} />
             </View>
             <View style={styles.subContainerTime}>
-              <Text style={fontStyles.mediumFontSecondary}>Computer Engineering</Text>
+              <Text style={fontStyles.mediumFontSecondary}>{this.props.data.division}</Text>
             </View>
           </View>
           <View style={styles.subContainerMajor}>
-            <Text style={fontStyles.mediumFontSecondary}>A</Text>
+            <Text style={fontStyles.mediumFontSecondary}>{this.props.data.grade}</Text>
           </View>
         </View>
       </View>

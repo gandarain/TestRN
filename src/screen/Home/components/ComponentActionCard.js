@@ -16,7 +16,7 @@ class ComponentActionCard extends Component {
 
   render() {
     return (
-      <View style={[styles.container, {borderBottomWidth: this.props.show_schedule ? 1 : 0}]}>
+      <View style={[styles.container, {borderBottomWidth: this.props.data.show_schedule ? 1 : 0}]}>
         <View style={styles.subContainer}>
           <TouchableOpacity style={styles.containerIcon}>
             <Icon type='MaterialCommunityIcons' name='check' style={styles.icon} />
@@ -33,9 +33,9 @@ class ComponentActionCard extends Component {
         </View>
         <TouchableOpacity 
           style={styles.containerShowScheduler} 
-          onPress={() => this.props.showUnshowSchedule()}
+          onPress={(item) => this.props.showUnshowSchedule(item)}
         >
-          <Icon type='MaterialCommunityIcons' name={this.props.show_schedule ?'chevron-down' : 'chevron-up'} style={styles.icon} />
+          <Icon type='MaterialCommunityIcons' name={this.props.data.show_schedule ?'chevron-down' : 'chevron-up'} style={styles.icon} />
         </TouchableOpacity>
       </View>
     )
