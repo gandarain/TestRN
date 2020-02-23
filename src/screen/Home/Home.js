@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-import {
-  Container,
-  Content,
-  Icon
-} from 'native-base'
-import {FlatList, SafeAreaView} from 'react-native'
+import { Container, Icon } from 'native-base'
+import { FlatList, SafeAreaView } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 import { color } from '../../assets/style/ColorList'
 import ComponentHeader from './components/ComponentHeader'
 import ComponentCard from './components/ComponentCard'
 import styles from './styles/Style'
 
+import { connect } from 'react-redux'
+import { setData, showSchedule } from '../../actions'
+
 class HomeScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: [],
       refreshing: false
     }
   }
@@ -62,27 +60,10 @@ class HomeScreen extends Component {
     ]
     setTimeout(() => {
       this.setState({
-        data: data,
         refreshing: false
       })
+      this.props.setData(data)
     }, 1000)
-    
-  }
-
-  showUnshowSchedule(item) {
-    let id = item.id
-    this.setState(prevState => ({
-      data: prevState.data.map(
-        item => item.id === id? { ...item, show_schedule: !item.show_schedule }: item
-      )
-    }))
-  }
-
-  onRefresh() {
-    this.setState({
-      data: []
-    })
-    this.loadData()
   }
 
   render() {
@@ -92,16 +73,17 @@ class HomeScreen extends Component {
         <SafeAreaView style={styles.container}>
           <FlatList
             refreshing={this.state.refreshing}
-            data={this.state.data}
+            data={this.props.data}
             renderItem={({ item, index }) => (
               <ComponentCard
+                key={item.id}
                 data={item}
                 index={index}
                 show_schedule={item.show_schedule}
-                showUnshowSchedule={() => this.showUnshowSchedule(item)} />
+                showUnshowSchedule={() => this.props.showSchedule(item.id)} />
             )}
             keyExtractor={item => item.id.toString()}
-            onRefresh={() => this.onRefresh()}
+            onRefresh={() => this.loadData()}
           />
         </SafeAreaView>
         <TouchableOpacity style={styles.containerButton}>
@@ -112,4 +94,10 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen
+const mapStateToProps = (state) => ({
+  data: state.data.data,
+})
+
+export default connect(
+  mapStateToProps, { setData, showSchedule }
+)(HomeScreen)
