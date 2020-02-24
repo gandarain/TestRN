@@ -20,5 +20,5 @@ How to run?
 6. react-native start
 7. react-native run-android / react-native run-ios
 
-![](attachment/ios.png){:height="50%" width="50%"}
-![](attachment/android.png){:height="50%" width="50%"}
+![](attachment/ios.png)
+![](attachment/android.png)
