@@ -19,3 +19,6 @@ How to run?
 5. pod install
 6. react-native start
 7. react-native run-android / react-native run-ios
+
+![](attachment/ios.png)
+![](attachment/android.png)
